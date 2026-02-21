@@ -1,37 +1,105 @@
-# todo_list
+📝 Todo App (React + Context API)
+A simple and elegant Todo Management Application built using React, Context API, and localStorage.
+This app allows users to add, edit, delete, and mark todos as completed, with data persisting even after page refresh.
 
-Simple Todo List
-A lightweight and visually appealing To-Do List Web App built using HTML, CSS, and JavaScript. It allows users to create, edit, delete, and mark tasks as completed — with all tasks stored locally in the browser for persistence.
-
-
-Features
-Add new todos quickly
-Mark tasks as completed using checkboxes
-Edit tasks by double-clicking on them
-Delete todos individually
-Automatically saves and loads tasks using localStorage
-Responsive and elegant UI with gradient backgrounds and smooth animations
-
-
-Technologies Used
-HTML5 – Structure and layout
-CSS3 – Styling and responsive design
-JavaScript (ES6) – Logic and localStorage persistence
+🚀 Features
+➕ Add new todos
+✏️ Edit existing todos
+✅ Mark todos as completed / uncompleted
+❌ Delete todos
+💾 Persistent storage using localStorage
+🌐 Global state management using React Context API
+🎨 Clean UI with Tailwind CSS
 
 
-Project Structure
-text
-├── todo.html   # Main HTML structure
-├── todo.css    # Styling and animations
-├── todo.js     # App logic and interactivity
+🛠️ Tech Stack
+React (Hooks) – useState, useEffect, useContext
+Context API – Global state management
+Tailwind CSS – Styling
+localStorage – Data persistence
 
 
-How to Run
-Download or clone the repository
-Open todo.html in any modern browser
-Start adding your todos!
-Your tasks will automatically be saved in your browser’s local storage, so they remain even after closing the page.
+📁 Project Structure
+src/
+│
+├── App.jsx
+├── main.jsx
+│
+├── components/
+│   ├── TodoForm.jsx
+│   ├── TodoItems.jsx
+│   └── index.js
+│
+├── contexts/
+│   ├── TodoContext.js
+│   └── index.js
+│
+└── App.css
 
 
-Preview
-A simple and interactive to-do list for everyday productivity.
+🧠 Context API Explanation
+📌 TodoContext.js
+Creates a global TodoContext
+Stores:
+todos array
+Functions: addTodo, updateTodo, deleteTodo, toggleComplete
+Exposes a custom hook: useTodo()
+export const TodoContext = createContext();
+export const useTodo = () => useContext(TodoContext);
+
+
+🧩 Components Overview
+🔹 App.jsx
+Manages the main todo state
+Handles:
+Adding
+Updating
+Deleting
+Toggling completion
+Syncs todos with localStorage
+Wraps app with TodoProvider
+🔹 TodoForm.jsx
+Input form for adding new todos
+Uses addTodo() from context
+Prevents empty submissions
+🔹 TodoItems.jsx
+Displays each todo item
+Allows:
+Edit mode
+Completion toggle
+Deletion
+Disables editing for completed todos
+
+
+💾 Local Storage Support
+Todos are automatically:
+Loaded from localStorage on app start
+Saved to localStorage on every change
+useEffect(() => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}, [todos]);
+
+
+▶️ How to Run the Project
+Clone the repository
+git clone <your-repo-url>
+Install dependencies
+npm install
+Start the development server
+npm run dev
+
+
+📸 UI Preview
+Clean and minimal UI
+Color-coded completed todos
+Responsive design
+
+
+🔮 Future Improvements
+🔍 Search todos
+🗂️ Filter (Completed / Pending)
+📅 Due dates
+☁️ Backend integration
+
+👨‍💻 Author
+Abhay Singh
